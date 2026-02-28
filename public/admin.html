@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TamatoVest - Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { font-family: 'Poppins', sans-serif; }
+        body { background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%); }
+        .sidebar { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; background: linear-gradient(180deg, #7f1d1d 0%, #991b1b 100%); color: white; padding: 24px; z-index: 40; }
+        .main-content { margin-left: 280px; padding: 24px; }
+        .page { display: none; }
+        .page.active { display: block; }
+        .stat-card { background: white; border-radius: 16px; padding: 24px; border: 1px solid #fee2e2; }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="mb-8 text-center">
+        <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-black mx-auto mb-4">🛡️</div>
+        <p class="text-xs text-red-200">ADMIN</p>
+        <h2 class="font-black text-lg">TAMATOVEST</h2>
+    </div>
+    <div class="space-y-2">
+        <div class="p-3 rounded bg-red-700 cursor-pointer font-bold" onclick="switchTab('dashboard')">
+            <i class="fas fa-chart-line mr-3"></i> Dashboard
+        </div>
+        <div class="p-3 rounded hover:bg-red-700 cursor-pointer" onclick="switchTab('investments')">
+            <i class="fas fa-check-circle mr-3"></i> Approvals
+        </div>
+    </div>
+</div>
+
+<div class="main-content">
+    <div class="page active" id="dashboard">
+        <h1 class="text-4xl font-black text-red-900 mb-12">Dashboard</h1>
+        <div class="grid md:grid-cols-4 gap-6">
+            <div class="stat-card">
+                <p class="text-xs font-bold text-gray-500">Total Investments</p>
+                <p class="text-3xl font-black text-blue-600 mt-2">R48,500</p>
+            </div>
+            <div class="stat-card">
+                <p class="text-xs font-bold text-gray-500">Pending Approvals</p>
+                <p class="text-3xl font-black text-orange-600 mt-2">3</p>
+            </div>
+            <div class="stat-card">
+                <p class="text-xs font-bold text-gray-500">Withdrawals</p>
+                <p class="text-3xl font-black text-green-600 mt-2">1</p>
+            </div>
+            <div class="stat-card">
+                <p class="text-xs font-bold text-gray-500">Total Users</p>
+                <p class="text-3xl font-black text-purple-600 mt-2">42</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page" id="investments">
+        <h1 class="text-4xl font-black text-red-900 mb-12">Investment Approvals</h1>
+        <div class="space-y-4">
+            <div class="bg-white rounded-2xl p-6 border border-red-100">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h4 class="text-lg font-black">Sarah Johnson</h4>
+                        <p class="text-sm text-gray-600">R580 - Cherry Petit</p>
+                    </div>
+                    <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded text-xs font-bold">PENDING</span>
+                </div>
+                <div class="flex gap-4">
+                    <button class="bg-green-600 text-white px-4 py-2 rounded font-bold" onclick="alert('Approved!')">✓ Approve</button>
+                    <button class="bg-red-600 text-white px-4 py-2 rounded font-bold" onclick="alert('Rejected')">✗ Reject</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function switchTab(pageId) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+    }
+</script>
+
+</body>
+</html>
