@@ -1,12 +1,9 @@
-name = "tamatovest"
-type = "javascript"
-main = "src/index.js"
-compatibility_date = "2024-01-01"
+[[build]]
+  command = "npm run build"
+  functions = "functions"
+  publish = "dist"
 
-[build]
-command = "echo 'Static site ready'"
-cwd = "./"
-watch_paths = ["public/**/*"]
-
-[[triggers.crons]]
-cron = "0 0 * * *"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
