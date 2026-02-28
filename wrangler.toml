@@ -1,2 +1,12 @@
 name = "tamatovest"
 type = "javascript"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[build]
+command = "echo 'Static site ready'"
+cwd = "./"
+watch_paths = ["public/**/*"]
+
+[[triggers.crons]]
+cron = "0 0 * * *"
