@@ -1,0 +1,12 @@
+tamatovest/
+│
+├── backend/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── uploads/
+│   ├── server.js
+│   ├── package.json
+│
+├── public/
+├── index.html
